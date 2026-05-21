@@ -1,0 +1,37 @@
+.home {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: white;
+}
+
+.info-card {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.info-card h1 {
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+.info-card ul {
+  margin-top: 15px;
+  padding: 0;
+  list-style: none;
+}
+
+.info-card li {
+  margin: 8px 0;
+  opacity: 0.9;
+}
