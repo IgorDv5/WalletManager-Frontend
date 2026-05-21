@@ -1,0 +1,31 @@
+<header class="header">
+
+  <div class="logo">
+    <a routerLink="/home">
+      <img src="../../../assets/imgs/WalletLogo.svg" alt="Logo" />
+      MyWalletManager
+    </a>
+  </div>
+
+  <nav class="nav">
+    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <a routerLink="/transacoes" routerLinkActive="active">Transações</a>
+    <a routerLink="/categorias" routerLinkActive="active">Categorias</a>
+  </nav>
+
+  <div class="profile">
+    <div class="avatar" (click)="toggleMenu()">U</div>
+
+    <div class="dropdown" *ngIf="menuOpen">
+
+      <a routerLink="/perfil">Meu Perfil</a>
+
+      <button (click)="logout()">
+        Sair
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
