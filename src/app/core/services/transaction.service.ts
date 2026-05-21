@@ -19,12 +19,16 @@ export class TransactionService {
     return this.http.get<Transaction[]>(`${this.baseURL}`);
   }
 
-  create(transaction : Transaction): Observable<Transaction>{
+  create(transaction: Transaction): Observable<Transaction>{
     return this.http.post<Transaction>(`${this.baseURL}`,transaction);
   }
 
-  update(transaction : Transaction): Observable<Transaction>{
+  update(transaction: Transaction): Observable<Transaction>{
     return this.http.put<Transaction>(`${this.baseURL}/${transaction.id}`, transaction);
+  }
+
+  toggleSoftDelete(id: number): Observable<void> {
+    return this.http.patch<void>(`${this.baseURL}/${id}/toggle`, {});
   }
 
 }
