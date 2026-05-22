@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { TransactionService } from '../../../core/services/transaction.service';
-import { Transaction } from '../../../shared/models/transaction/Transaction';
+
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterModule } from "@angular/router";
+import { Transaction } from '../../../shared/models/transaction/transactions/Transaction';
 
 @Component({
   selector: 'app-transaction-list',
