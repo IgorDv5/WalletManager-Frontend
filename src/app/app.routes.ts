@@ -3,6 +3,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { TransactionListComponent } from './pages/transactions/transaction-list/transaction-list.component';
 import { CategoryListComponent } from './pages/categories/category-list/category-list.component';
 import { CategoryCreateComponent } from './pages/categories/category-create/category-create.component';
+import { CategoryEditComponent } from './pages/categories/category-edit/category-edit.component';
 
 export const routes: Routes = [
     
@@ -22,6 +23,10 @@ export const routes: Routes = [
     {
         path: 'categories/create',
         component: CategoryCreateComponent
+    },
+    {
+         path: 'categories/edit/:id',
+        component: CategoryEditComponent
     },
     {
         path: 'transactions',
