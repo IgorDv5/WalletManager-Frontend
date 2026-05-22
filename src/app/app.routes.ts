@@ -1,9 +1,8 @@
 import { Routes } from '@angular/router';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TransactionListComponent } from './pages/transactions/transaction-list/transaction-list.component';
-import { CategoryListComponent } from './pages/Categories/category-list/category-list.component';
+import { CategoryListComponent } from './pages/categories/category-list/category-list.component';
+import { CategoryCreateComponent } from './pages/categories/category-create/category-create.component';
 
 export const routes: Routes = [
     
@@ -15,9 +14,14 @@ export const routes: Routes = [
         path: 'home',
         component: HomeComponent
     },
+    // ******Categorias**********
     {
         path: 'categories',
         component: CategoryListComponent
+    },
+    {
+        path: 'categories/create',
+        component: CategoryCreateComponent
     },
     {
         path: 'transactions',
