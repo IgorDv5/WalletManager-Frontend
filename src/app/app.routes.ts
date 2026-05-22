@@ -4,6 +4,7 @@ import { TransactionListComponent } from './pages/transactions/transaction-list/
 import { CategoryListComponent } from './pages/categories/category-list/category-list.component';
 import { CategoryCreateComponent } from './pages/categories/category-create/category-create.component';
 import { CategoryEditComponent } from './pages/categories/category-edit/category-edit.component';
+import { TransactionCreateComponent } from './pages/transactions/transaction-create/transaction-create.component';
 
 export const routes: Routes = [
     
@@ -15,7 +16,7 @@ export const routes: Routes = [
         path: 'home',
         component: HomeComponent
     },
-    // ******Categorias**********
+    // ******Categories**********
     {
         path: 'categories',
         component: CategoryListComponent
@@ -28,13 +29,14 @@ export const routes: Routes = [
          path: 'categories/edit/:id',
         component: CategoryEditComponent
     },
+    // ******Transactions**********
     {
         path: 'transactions',
         component: TransactionListComponent
     },
     {
         path: 'transactions/create',
-        component: HomeComponent
+        component: TransactionCreateComponent
     },
     {
         path: 'edit/:id',

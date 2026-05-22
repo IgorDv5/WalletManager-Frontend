@@ -3,7 +3,7 @@ import { TransactionType } from "../enums/transaction-type.enum";
 
 export interface Transaction {
 
-  id: number;
+  id?: number;
   amount: number;
   description: string;
   date: string;
