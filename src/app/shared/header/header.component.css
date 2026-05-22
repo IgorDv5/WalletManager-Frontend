@@ -40,7 +40,12 @@
   color: white;
   text-decoration: none;
   padding: 5px 0;
-   cursor: pointer;
+  cursor: pointer;
+}
+
+.nav a:link,
+.nav a:visited {
+  color: white;
 }
 
 
@@ -69,6 +74,14 @@
   position: relative;
   display: flex;
   align-items: center;
+}
+
+.profile a {
+   position: relative;
+  color: rgb(5, 5, 5);
+  text-decoration: none;
+  padding: 5px 0;
+  cursor: pointer;
 }
 
 .avatar {
