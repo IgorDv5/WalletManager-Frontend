@@ -1,0 +1,71 @@
+.container {
+  width: 30%;
+  margin: auto;
+}
+
+h1 {
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Button Create */
+.header-actions {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+
+/* Filter */
+.filter {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+/* Table */
+table {
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Header */
+th.mat-header-cell {
+  background: #f7f7f7;
+  font-weight: 600;
+  color: #444;
+}
+
+/* Row hover */
+tr.mat-row:hover {
+  background: #f5f7ff;
+  transition: 0.2s;
+}
+
+/* Actions buttons */
+.edit {
+  color: rgb(12, 77, 77);
+  transition: 0.2s;
+}
+
+.edit:hover {
+  transform: scale(1.1);
+}
+
+.delete {
+  color: #c62828;
+  transition: 0.2s;
+}
+
+.delete:hover {
+  transform: scale(1.1);
+}
+
+/* Paginator */
+mat-paginator {
+  margin-top: 1rem;
+  border-radius: 8px;
+}
