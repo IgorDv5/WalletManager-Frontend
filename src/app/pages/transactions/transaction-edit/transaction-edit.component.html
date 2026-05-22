@@ -1,0 +1,113 @@
+<div class="container">
+
+    <div class="card">
+
+        <h1>Editar Transação</h1>
+
+        <form [formGroup]="form" (ngSubmit)="update()">
+
+            <!-- Amount -->
+            <mat-form-field appearance="outline">
+                <mat-label>Valor</mat-label>
+
+                <input
+                    matInput
+                    type="number"
+                    formControlName="amount">
+
+                <mat-error *ngIf="form.get('amount')?.invalid">
+                    Valor obrigatório
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Description -->
+            <mat-form-field appearance="outline">
+                <mat-label>Descrição</mat-label>
+
+                <input
+                    matInput
+                    formControlName="description">
+
+                <mat-error *ngIf="form.get('description')?.invalid">
+                    Descrição deve ter no mínimo 3 caracteres
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Date -->
+            <mat-form-field appearance="outline">
+                <mat-label>Data</mat-label>
+
+                <input
+                    matInput
+                    type="datetime-local"
+                    formControlName="date">
+
+                <mat-error *ngIf="form.get('date')?.invalid">
+                    Data obrigatória
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Type -->
+            <mat-form-field appearance="outline">
+                <mat-label>Tipo</mat-label>
+
+                <mat-select formControlName="type">
+
+                    <mat-option
+                        *ngFor="let type of transactionTypes"
+                        [value]="type.value">
+
+                        {{ type.label }}
+
+                    </mat-option>
+
+                </mat-select>
+
+                <mat-error *ngIf="form.get('type')?.invalid">
+                    Tipo obrigatório
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Category -->
+            <mat-form-field appearance="outline">
+                <mat-label>Categoria</mat-label>
+
+                <input
+                    matInput
+                    type="number"
+                    formControlName="categoryId">
+
+                <mat-error *ngIf="form.get('categoryId')?.invalid">
+                    Categoria obrigatória
+                </mat-error>
+            </mat-form-field>
+
+            <!-- BOTÕES -->
+            <div class="actions">
+
+                <button
+                    mat-stroked-button
+                    class="btn-cancel"
+                    type="button"
+                    (click)="cancelar()">
+
+                    Cancelar
+
+                </button>
+
+                <button
+                    mat-raised-button
+                    class="btn-success"
+                    type="submit">
+
+                    Salvar
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
