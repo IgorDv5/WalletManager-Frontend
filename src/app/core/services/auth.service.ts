@@ -3,6 +3,9 @@ import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoginRequest } from '../../shared/models/auth/LoginRequest';
 import { LoginResponse } from '../../shared/models/auth/LoginResponse';
+import { jwtDecode } from 'jwt-decode';
+import { TokenPayload } from '../../shared/models/auth/TokenPayload';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +16,6 @@ export class AuthService {
   private baseURL = 'http://localhost:8080/auth';
 
   login(data: LoginRequest): Observable<LoginResponse> {
-
     return this.http.post<LoginResponse>(`${this.baseURL}/login`,data);
   }
 
@@ -23,6 +25,23 @@ export class AuthService {
 
   getToken(): string | null {
     return localStorage.getItem('token');
+  }
+
+  getDecodedToken(): TokenPayload | null {
+
+    const token = this.getToken();
+
+    if (!token) return null;
+
+    return jwtDecode<TokenPayload>(token);
+  }
+
+  getRole(): string | null {
+    return this.getDecodedToken()?.role ?? null;
+  }
+
+  isAdmin(): boolean {
+    return this.getRole() === 'ADMIN';
   }
 
   isAuthenticated(): boolean {
