@@ -6,6 +6,7 @@ import { CategoryCreateComponent } from './pages/categories/category-create/cate
 import { CategoryEditComponent } from './pages/categories/category-edit/category-edit.component';
 import { TransactionCreateComponent } from './pages/transactions/transaction-create/transaction-create.component';
 import { TransactionEditComponent } from './pages/transactions/transaction-edit/transaction-edit.component';
+import { UserListComponent } from './pages/users/user-list/user-list.component';
 
 export const routes: Routes = [
     
@@ -16,6 +17,11 @@ export const routes: Routes = [
      {
         path: 'home',
         component: HomeComponent
+    },
+     // ******Users**********
+    {
+        path: 'users',
+        component: UserListComponent
     },
     // ******Categories**********
     {

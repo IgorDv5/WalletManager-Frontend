@@ -1,17 +1,17 @@
 import { Component, inject, ViewChild } from '@angular/core';
-import { Category } from '../../../shared/models/categories/Category';
+import { User } from '../../../shared/models/users/User';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { CategoryService } from '../../../core/services/category.service';
-import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
+import { UserService } from '../../../core/services/user.service';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-category-list',
+  selector: 'app-user-list',
   imports: [
     MatTableModule,
     MatIconModule,
@@ -22,30 +22,32 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     RouterLink,
   ],
-  templateUrl: './category-list.component.html',
-  styleUrl: './category-list.component.css'
+  templateUrl: './user-list.component.html',
+  styleUrl: './user-list.component.css'
 })
-export class CategoryListComponent {
+export class UserListComponent {
 
-  categories: Category[] = [];
+  categories: User[] = [];
 
   displayedColumns: string[] = [
     'id',
-    'name',
+    'nome',
+    'email',
+    'role',
     'actions'
   ];
 
-  dataSource = new MatTableDataSource<Category>([]);
+  dataSource = new MatTableDataSource<User>([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  private service = inject(CategoryService);
+  private service = inject(UserService);
 
   ngOnInit(): void {
     this.findAll();
 
-    this.dataSource.filterPredicate = (data: Category, filter: string) => {
-      return data.name.toLowerCase().includes(filter);
+    this.dataSource.filterPredicate = (data: User, filter: string) => {
+      return data.nome.toLowerCase().includes(filter);
     };
   }
 
@@ -71,7 +73,7 @@ export class CategoryListComponent {
   }
 
   toggleDelete(id: number) {
-    this.service.delete(id).subscribe(() => {
+    this.service.toggleSoftDelete(id).subscribe(() => {
       this.findAll();
     });
   }

@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { CategoryService } from '../../../core/services/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Category } from '../../../shared/models/transaction/categories/Category';
+import { Category } from '../../../shared/models/categories/Category';
 
 @Component({
   selector: 'app-category-edit',
