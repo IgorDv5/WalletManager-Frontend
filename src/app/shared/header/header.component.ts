@@ -1,26 +1,33 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
 
- menuOpen = false;
+  private authService = inject(AuthService)
 
- private router = inject(Router);
+  menuOpen = false;
 
- toggleMenu() {
-  this.menuOpen = !this.menuOpen;
-}
+  private router = inject(Router);
 
- logout() {
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
+  }
+
+  isAdmin(): boolean {
+    return this.authService.isAdmin();
   }
 
 }

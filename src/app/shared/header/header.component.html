@@ -11,6 +11,7 @@
     <a routerLink="/home" routerLinkActive="active">Home</a>
     <a routerLink="/transactions" routerLinkActive="active">Transações</a>
     <a routerLink="/categories" routerLinkActive="active">Categorias</a>
+    <a *ngIf="isAdmin()" routerLink="/admin/dashboard">Dashboard Admin</a>
   </nav>
 
   <div class="profile">
