@@ -32,11 +32,18 @@ export const routes: Routes = [
         children: [
             { path: 'home', component: HomeComponent },
             { path: '', component: HomeComponent },
+            //-------transactions---------
             { path: 'transactions', component: TransactionListComponent },
             { path: 'transactions/create', component: TransactionCreateComponent },
             { path: 'transactions/edit/:id', component: TransactionEditComponent },
+            //-------categories---------
             { path: 'categories', component: CategoryListComponent },
-            { path: 'users', component: UserListComponent }
+            { path: 'categories/create', component: CategoryCreateComponent },
+            { path: 'categories/edit/:id', component: CategoryEditComponent },
+            //-------users---------
+            { path: 'users', component: UserListComponent },
+            { path: 'users/create', component: UserCreateComponent},
+            { path: 'users/edit/:id', component: UserEditComponent },
         ]
     }
 ];
