@@ -16,7 +16,7 @@ export class AuthService {
   private baseURL = 'http://localhost:8080/auth';
 
   login(data: LoginRequest): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${this.baseURL}/login`,data);
+    return this.http.post<LoginResponse>(`${this.baseURL}/login`, data);
   }
 
   logout(): void {

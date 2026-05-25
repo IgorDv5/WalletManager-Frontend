@@ -30,4 +30,10 @@ export class HeaderComponent {
     return this.authService.isAdmin();
   }
 
+  getUserId(): number | null {
+    
+    return this.authService.getDecodedToken()?.id ?? null;
+    
+  }
+
 }

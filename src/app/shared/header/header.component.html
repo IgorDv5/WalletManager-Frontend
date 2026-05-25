@@ -11,7 +11,6 @@
     <a routerLink="/home" routerLinkActive="active">Home</a>
     <a routerLink="/transactions" routerLinkActive="active">Transações</a>
     <a routerLink="/categories" routerLinkActive="active">Categorias</a>
-    <a *ngIf="isAdmin()" routerLink="/admin/dashboard">Dashboard Admin</a>
   </nav>
 
   <div class="profile">
@@ -19,7 +18,9 @@
 
     <div class="dropdown" *ngIf="menuOpen">
 
-      <a routerLink="/perfil">Meu Perfil</a>
+      <a [routerLink]="['/users/edit', getUserId()]">
+        Meu Perfil
+      </a>
 
       <button (click)="logout()">
         Sair
