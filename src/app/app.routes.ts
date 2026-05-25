@@ -8,6 +8,7 @@ import { TransactionCreateComponent } from './pages/transactions/transaction-cre
 import { TransactionEditComponent } from './pages/transactions/transaction-edit/transaction-edit.component';
 import { UserListComponent } from './pages/users/user-list/user-list.component';
 import { UserEditComponent } from './pages/users/user-edit/user-edit.component';
+import { UserCreateComponent } from './pages/users/user-create/user-create.component';
 
 export const routes: Routes = [
 
@@ -23,6 +24,10 @@ export const routes: Routes = [
     {
         path: 'users',
         component: UserListComponent
+    },
+    {
+        path: 'users/create',
+        component: UserCreateComponent
     },
     {
         path: 'users/edit/:id',
