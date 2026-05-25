@@ -1,0 +1,62 @@
+<div class="container">
+
+    <div class="card">
+
+        <h1>Editar Usuário</h1>
+
+        <form [formGroup]="form" (ngSubmit)="update()">
+
+            <!-- NOME -->
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+
+                <input matInput formControlName="nome">
+
+                <mat-error *ngIf="form.get('nome')?.hasError('required')">
+                    Nome é obrigatório
+                </mat-error>
+
+                <mat-error *ngIf="form.get('nome')?.hasError('minlength')">
+                    Nome deve ter no mínimo 3 caracteres
+                </mat-error>
+            </mat-form-field>
+
+            <!-- EMAIL -->
+            <mat-form-field appearance="outline">
+
+                <mat-label>Email</mat-label>
+
+                <input matInput formControlName="email">
+
+                <mat-error *ngIf="form.get('email')?.hasError('required')">
+                    Email é obrigatório
+                </mat-error>
+
+                <mat-error *ngIf="form.get('email')?.hasError('email')">
+                    Email inválido
+                </mat-error>
+
+            </mat-form-field>
+
+            <!-- BOTÕES -->
+            <div class="actions">
+
+                <button mat-stroked-button class="btn-cancel" type="button" (click)="cancelar()">
+
+                    Cancelar
+
+                </button>
+
+                <button mat-raised-button class="btn-success" type="submit">
+
+                    Salvar
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

@@ -7,21 +7,26 @@ import { CategoryEditComponent } from './pages/categories/category-edit/category
 import { TransactionCreateComponent } from './pages/transactions/transaction-create/transaction-create.component';
 import { TransactionEditComponent } from './pages/transactions/transaction-edit/transaction-edit.component';
 import { UserListComponent } from './pages/users/user-list/user-list.component';
+import { UserEditComponent } from './pages/users/user-edit/user-edit.component';
 
 export const routes: Routes = [
-    
+
     {
         path: '',
         component: HomeComponent
     },
-     {
+    {
         path: 'home',
         component: HomeComponent
     },
-     // ******Users**********
+    // ******Users**********
     {
         path: 'users',
         component: UserListComponent
+    },
+    {
+        path: 'users/edit/:id',
+        component: UserEditComponent
     },
     // ******Categories**********
     {
@@ -33,7 +38,7 @@ export const routes: Routes = [
         component: CategoryCreateComponent
     },
     {
-         path: 'categories/edit/:id',
+        path: 'categories/edit/:id',
         component: CategoryEditComponent
     },
     // ******Transactions**********
@@ -47,7 +52,7 @@ export const routes: Routes = [
     },
     {
         path: 'transactions/edit/:id',
-         component: TransactionEditComponent
+        component: TransactionEditComponent
     }
 
 ];
