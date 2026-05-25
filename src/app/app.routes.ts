@@ -9,12 +9,17 @@ import { TransactionEditComponent } from './pages/transactions/transaction-edit/
 import { UserListComponent } from './pages/users/user-list/user-list.component';
 import { UserEditComponent } from './pages/users/user-edit/user-edit.component';
 import { UserCreateComponent } from './pages/users/user-create/user-create.component';
+import { LoginComponent } from './pages/login/login.component';
 
 export const routes: Routes = [
 
     {
         path: '',
         component: HomeComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
     },
     {
         path: 'home',
