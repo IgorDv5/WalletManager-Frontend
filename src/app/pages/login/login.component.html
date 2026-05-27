@@ -14,34 +14,23 @@
 
     <mat-card-content>
 
-      <form
-        [formGroup]="loginForm"
-        (ngSubmit)="onSubmit()"
-      >
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
         <mat-form-field appearance="outline">
 
           <mat-label>E-mail</mat-label>
 
-          <input
-            matInput
-            type="email"
-            formControlName="email"
-          >
+          <input matInput type="email" formControlName="email">
 
           <mat-icon matSuffix>
             email
           </mat-icon>
 
-          <mat-error
-            *ngIf="loginForm.controls.email.hasError('required')"
-          >
+          <mat-error *ngIf="loginForm.controls.email.hasError('required')">
             E-mail obrigatório
           </mat-error>
 
-          <mat-error
-            *ngIf="loginForm.controls.email.hasError('email')"
-          >
+          <mat-error *ngIf="loginForm.controls.email.hasError('email')">
             E-mail inválido
           </mat-error>
 
@@ -51,18 +40,9 @@
 
           <mat-label>Senha</mat-label>
 
-          <input
-            matInput
-            [type]="hidePassword ? 'password' : 'text'"
-            formControlName="password"
-          >
+          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
 
-          <button
-            mat-icon-button
-            matSuffix
-            type="button"
-            (click)="hidePassword = !hidePassword"
-          >
+          <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
 
             <mat-icon>
               {{ hidePassword ? 'visibility_off' : 'visibility' }}
@@ -76,23 +56,20 @@
 
         </mat-form-field>
 
-        <button
-          mat-raised-button
-          color="primary"
-          class="login-button"
-          [disabled]="loading"
-        >
+        <button mat-raised-button color="primary" class="login-button" [disabled]="loading">
 
-          <mat-spinner
-            *ngIf="loading"
-            diameter="20"
-          ></mat-spinner>
+          <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
 
           <span *ngIf="!loading">
             Entrar
           </span>
 
         </button>
+
+        <div class="register-link">
+          Não tem conta?
+          <a routerLink="/register">Criar conta</a>
+        </div>
 
       </form>
 

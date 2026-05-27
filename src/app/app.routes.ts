@@ -18,11 +18,16 @@ import { LoginComponent } from './pages/login/login.component';
 
 import { authGuard } from './core/auth/authGuard';
 import { LayoutComponent } from './shared/layout/layout.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 export const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
     },
 
     {

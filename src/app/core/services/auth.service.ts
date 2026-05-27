@@ -5,6 +5,7 @@ import { LoginRequest } from '../../shared/models/auth/LoginRequest';
 import { LoginResponse } from '../../shared/models/auth/LoginResponse';
 import { jwtDecode } from 'jwt-decode';
 import { TokenPayload } from '../../shared/models/auth/TokenPayload';
+import { User } from '../../shared/models/users/User';
 
 
 @Injectable({
@@ -17,6 +18,10 @@ export class AuthService {
 
   login(data: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${this.baseURL}/login`, data);
+  }
+
+  register(data: User): Observable<User>{
+    return this.http.post<User>(`${this.baseURL}/register`, data);
   }
 
   logout(): void {

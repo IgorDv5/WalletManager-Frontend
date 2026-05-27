@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoginRequest } from '../../shared/models/auth/LoginRequest';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { CommonModule } from '@angular/common';
 
@@ -23,7 +23,8 @@ import { CommonModule } from '@angular/common';
     MatIconModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    CommonModule
+    CommonModule,
+    RouterModule 
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'

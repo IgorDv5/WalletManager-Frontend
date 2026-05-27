@@ -57,6 +57,14 @@ mat-form-field {
   color: #8b8b9a !important;
 }
 
+/* FORÇA O FUNDO DO INPUT INTEIRO */
+::ng-deep .mat-mdc-text-field-wrapper {
+  background: #1b1b20 !important;
+  border-radius: 10px !important;
+}
+
+
+
 /* Ícones */
 mat-icon {
   color: #8b8b9a;
@@ -83,4 +91,21 @@ mat-icon {
 /* Spinner */
 mat-spinner {
   margin: auto;
+}
+
+.register-link {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.register-link a {
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
 }
