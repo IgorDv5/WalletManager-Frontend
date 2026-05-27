@@ -1,0 +1,89 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1e1e22;
+  padding: 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: #121214;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+}
+
+/* TÍTULO */
+h1 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: 18px;
+}
+
+/* Material dark input */
+::ng-deep .mat-mdc-form-field-flex {
+  background: #1a1a1f;
+  border-radius: 10px;
+  padding: 6px 10px;
+}
+
+::ng-deep input {
+  color: #fff !important;
+}
+
+::ng-deep .mat-mdc-form-field-label {
+  color: #8b8b9a !important;
+}
+
+/* FORÇA O FUNDO DO INPUT INTEIRO */
+::ng-deep .mat-mdc-text-field-wrapper {
+  background: #1b1b20 !important;
+  border-radius: 10px !important;
+}
+
+mat-icon {
+  color: #8b8b9a;
+}
+
+/* BOTÕES */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #2a2a2f;
+}
+
+.actions button {
+  flex: 1;
+  border-radius: 10px;
+}
+
+/* CANCELAR */
+.btn-cancel {
+  background: #dc2626 !important;
+  color: white !important;
+}
+
+/* CRIAR */
+.btn-success {
+  background: linear-gradient(135deg, #7c3aed, #ec4899) !important;
+  color: white !important;
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3);
+}

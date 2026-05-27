@@ -1,0 +1,64 @@
+<div class="container">
+
+  <div class="card">
+
+    <h1>Criar Conta</h1>
+
+    <form [formGroup]="form" (ngSubmit)="register()">
+
+      <!-- NOME -->
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome">
+
+        <mat-error *ngIf="form.get('nome')?.hasError('required')">
+          Nome é obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <!-- EMAIL -->
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email">
+
+        <mat-error *ngIf="form.get('email')?.hasError('required')">
+          Email é obrigatório
+        </mat-error>
+
+        <mat-error *ngIf="form.get('email')?.hasError('email')">
+          Email inválido
+        </mat-error>
+      </mat-form-field>
+
+      <!-- SENHA -->
+      <mat-form-field appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" formControlName="password">
+
+        <mat-error *ngIf="form.get('password')?.hasError('required')">
+          Senha é obrigatória
+        </mat-error>
+
+        <mat-error *ngIf="form.get('password')?.hasError('minlength')">
+          Senha deve ter no mínimo 6 caracteres
+        </mat-error>
+      </mat-form-field>
+
+      <!-- BOTÕES -->
+      <div class="actions">
+
+        <button mat-stroked-button type="button" (click)="cancelar()">
+          Cancelar
+        </button>
+
+        <button mat-raised-button color="primary" type="submit">
+          Criar conta
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
