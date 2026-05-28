@@ -20,6 +20,10 @@ export class TransactionService {
     return this.http.get<Transaction[]>(`${this.baseURL}`);
   }
 
+  findAllDeleted(): Observable<Transaction[]>{
+    return this.http.get<Transaction[]>(`${this.baseURL}/deleted`);
+  }
+
   create(transaction: Transaction): Observable<Transaction>{
     return this.http.post<Transaction>(`${this.baseURL}`,transaction);
   }
