@@ -26,13 +26,22 @@ import { CategoryService } from '../../../core/services/category.service';
 })
 export class TransactionCreateComponent implements OnInit {
 
-
+ 
   private fb = inject(FormBuilder);
   private service = inject(TransactionService);
   private router = inject(Router);
   private categoryService = inject(CategoryService);
 
-  transactionTypes = Object.values(TransactionType);
+    transactionTypes = [
+    {
+      label: 'Ganho',
+      value: TransactionType.INCOME
+    },
+    {
+      label: 'Gasto',
+      value: TransactionType.EXPENSE
+    }
+  ];
 
   categories: any[] = [];
 
