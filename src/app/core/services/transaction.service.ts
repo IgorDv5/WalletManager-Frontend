@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Transaction } from '../../shared/models/transaction/transactions/Transaction';
+import { TransactionSummaryDTO } from '../../shared/models/transaction/transactions/TransactionSummaryDTO';
 
 
 @Injectable({
@@ -35,5 +36,11 @@ export class TransactionService {
   toggleSoftDelete(id: number): Observable<void> {
     return this.http.patch<void>(`${this.baseURL}/${id}/toggle`, {});
   }
+
+  getSummary(start: string, end: string): Observable<TransactionSummaryDTO> {
+  return this.http.get<TransactionSummaryDTO>(`${this.baseURL}/summary`, {
+    params: { start, end }
+  });
+}
 
 }

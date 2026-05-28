@@ -20,6 +20,7 @@ import { authGuard } from './core/auth/authGuard';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { TransactionListDeletedComponent } from './pages/transactions/transaction-list-deleted/transaction-list-deleted.component';
+import { DashboardComponent } from './pages/transactions/dashboard/dashboard.component';
 
 export const routes: Routes = [
     {
@@ -43,6 +44,7 @@ export const routes: Routes = [
             { path: 'transactions/deleteds', component: TransactionListDeletedComponent },
             { path: 'transactions/create', component: TransactionCreateComponent },
             { path: 'transactions/edit/:id', component: TransactionEditComponent },
+            { path: 'transactions/dashboard', component: DashboardComponent },
 
             //-------categories---------
             { path: 'categories', component: CategoryListComponent },

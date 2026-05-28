@@ -14,7 +14,7 @@ h1 {
 .header-actions {
   display: flex;
   justify-content: center;
-   gap: 1rem;
+  gap: 1rem;
   margin: 0.5rem 0;
 }
 
@@ -32,14 +32,19 @@ h1 {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
-.btn-create {
-  background-color: #1b8f3a;
-  color: white;
+::ng-deep .btn-create.mat-mdc-raised-button {
+  background-color: #1b8f3a !important;
+  color: white !important;
 }
 
-.btn-deleteds {
-  background-color: #c62828;
-  color: white;
+::ng-deep .btn-dashboard.mat-mdc-raised-button {
+  background-color: #1976d2 !important;
+  color: white !important;
+}
+
+::ng-deep .btn-deleteds.mat-mdc-raised-button {
+  background-color: #c62828 !important;
+  color: white !important;
 }
 
 /*<!-- Filter -->*/

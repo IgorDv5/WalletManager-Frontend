@@ -1,0 +1,55 @@
+<div class="container">
+
+  <h1>Dashboard</h1>
+
+  <div class="header-actions">
+    <button mat-raised-button class="btn-back" [routerLink]="['/transactions']">
+      <mat-icon>arrow_back</mat-icon>
+      Voltar
+    </button>
+  </div>
+
+  <!-- Filtro de período -->
+  <div class="period">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Data início</mat-label>
+      <input matInput type="date" [formControl]="start">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Data fim</mat-label>
+      <input matInput type="date" [formControl]="end">
+    </mat-form-field>
+
+    <button mat-raised-button class="btn-filter" (click)="loadSummary()">
+      <mat-icon>filter_alt</mat-icon>
+      Filtrar
+    </button>
+
+  </div>
+
+  <!-- Cards -->
+  <div class="cards" *ngIf="summary">
+
+    <div class="card income">
+      <mat-icon>trending_up</mat-icon>
+      <span class="label">Entradas</span>
+      <span class="value">{{ summary.income | currency:'BRL' }}</span>
+    </div>
+
+    <div class="card expense">
+      <mat-icon>trending_down</mat-icon>
+      <span class="label">Saídas</span>
+      <span class="value">{{ summary.expense | currency:'BRL' }}</span>
+    </div>
+
+    <div class="card balance" [ngClass]="summary.balance >= 0 ? 'positive' : 'negative'">
+      <mat-icon>account_balance_wallet</mat-icon>
+      <span class="label">Saldo</span>
+      <span class="value">{{ summary.balance | currency:'BRL' }}</span>
+    </div>
+
+  </div>
+
+</div>
