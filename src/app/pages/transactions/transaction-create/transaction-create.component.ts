@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Transaction } from '../../../shared/models/transaction/transactions/Transaction';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TransactionType } from '../../../shared/models/transaction/enums/transaction-type.enum';
@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
+import { CategoryService } from '../../../core/services/category.service';
 
 @Component({
   selector: 'app-transaction-create',
@@ -23,14 +24,17 @@ import { CommonModule } from '@angular/common';
   templateUrl: './transaction-create.component.html',
   styleUrl: './transaction-create.component.css'
 })
-export class TransactionCreateComponent {
+export class TransactionCreateComponent implements OnInit {
 
 
   private fb = inject(FormBuilder);
   private service = inject(TransactionService);
   private router = inject(Router);
+  private categoryService = inject(CategoryService);
 
   transactionTypes = Object.values(TransactionType);
+
+  categories: any[] = [];
 
   form: FormGroup = this.fb.group({
     amount: [null, [Validators.required]],
@@ -39,6 +43,17 @@ export class TransactionCreateComponent {
     type: ['', Validators.required],
     categoryId: [null, Validators.required]
   });
+
+  ngOnInit(): void {
+    this.loadCategories();
+  }
+
+  loadCategories(): void {
+    this.categoryService.findAll().subscribe({
+      next: (data) => this.categories = data,
+      error: (err) => console.error(err)
+    });
+  }
 
   create(): void {
 

@@ -9,6 +9,7 @@ import { TransactionService } from '../../../core/services/transaction.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TransactionType } from '../../../shared/models/transaction/enums/transaction-type.enum';
 import { Transaction } from '../../../shared/models/transaction/transactions/Transaction';
+import { CategoryService } from '../../../core/services/category.service';
 
 @Component({
   selector: 'app-transaction-edit',
@@ -29,6 +30,9 @@ export class TransactionEditComponent implements OnInit {
   private service = inject(TransactionService);
   private router = inject(Router);
   private route = inject(ActivatedRoute);
+  private categoryService = inject(CategoryService);
+
+  categories: any[] = [];
 
   transactionTypes = [
     {
@@ -51,10 +55,23 @@ export class TransactionEditComponent implements OnInit {
     userId: 0
   });
 
+
   ngOnInit(): void {
+    this.loadCategories();
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.findById(id)
   }
+
+  loadCategories(): void {
+  this.categoryService.findAll().subscribe({
+    next: (data) => {
+      this.categories = data;
+    },
+    error: (err) => {
+      console.error('Erro ao buscar categorias', err);
+    }
+  });
+}
 
   findById(id: number) {
     this.service.findById(id).subscribe(transaction => {
