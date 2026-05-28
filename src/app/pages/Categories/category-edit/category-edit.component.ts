@@ -32,7 +32,6 @@ export class CategoryEditComponent implements OnInit {
    form = this.fb.group({
     id: 0,
     name: ['', Validators.required],
-    userId: 0
   });
 
    ngOnInit(): void {

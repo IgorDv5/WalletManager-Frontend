@@ -30,7 +30,6 @@ export class CategoryCreateComponent {
 
   form = this.fb.group({
     name: ['', Validators.required],
-    userId: 0
   });
 
     create() {
